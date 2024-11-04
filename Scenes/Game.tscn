@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dop3beulqtjol"]
+
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_t2b36"]
+[ext_resource type="Script" path="res://Scripts/enemy_spawn_timer.gd" id="2_fp876"]
+[ext_resource type="PackedScene" uid="uid://cjr0qawpglql2" path="res://Scenes/Player.tscn" id="3_j45xf"]
+[ext_resource type="PackedScene" uid="uid://db203g02fhj7q" path="res://Scenes/Sword.tscn" id="4_pth2s"]
+[ext_resource type="PackedScene" uid="uid://cjfp5h83g3kgf" path="res://Scenes/Enemy.tscn" id="4_ttk2x"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(10, 21)
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_t2b36")
+
+[node name="SpawnTimer" type="Timer" parent="GameManager"]
+one_shot = true
+script = ExtResource("2_fp876")
+
+[node name="Player" parent="." instance=ExtResource("3_j45xf")]
+position = Vector2(545, 335)
+scale = Vector2(0.0764377, 0.072832)
+
+[node name="Sword" parent="Player" instance=ExtResource("4_pth2s")]
+position = Vector2(-9.15527e-05, -535.479)
+scale = Vector2(41.8642, 43.9367)
+
+[node name="Enemy" parent="." instance=ExtResource("4_ttk2x")]
+position = Vector2(370, 350)
+
+[connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager/SpawnTimer" method="_on_timeout"]

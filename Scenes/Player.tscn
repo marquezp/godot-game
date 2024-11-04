@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjr0qawpglql2"]
+
+[ext_resource type="Texture2D" uid="uid://diid24un70spr" path="res://Assets/Nieve.png" id="1_3gjun"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_acwdo"]
+[ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="3_cu6sh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0l8ue"]
+radius = 101.0
+height = 514.0
+
+[node name="Player" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_acwdo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3gjun")
+
+[node name="HurtBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("3_cu6sh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+position = Vector2(-17, 88)
+rotation = 3.14159
+scale = Vector2(0.896457, 1.10891)
+shape = SubResource("CapsuleShape2D_0l8ue")
