@@ -8,6 +8,33 @@
 radius = 254.523
 height = 2338.86
 
+[sub_resource type="Animation" id="Animation_anvid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.23047]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_3wdfy"]
 resource_name = "slash"
 length = 0.2
@@ -36,33 +63,6 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_anvid"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-2.23047]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jmmpx"]
 _data = {
 "RESET": SubResource("Animation_anvid"),
@@ -75,10 +75,11 @@ script = ExtResource("1_6t25p")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 9)
 rotation = -2.23047
-scale = Vector2(-0.00610428, 0.00516914)
+scale = Vector2(-0.05, 0.042)
 texture = ExtResource("1_akuby")
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
+collision_mask = 0
 script = ExtResource("2_tvguy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]

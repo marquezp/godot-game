@@ -7,6 +7,21 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yd3lw"]
 
+[sub_resource type="Animation" id="Animation_yuvg7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_qxm4w"]
 resource_name = "hit"
 length = 0.4
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.146663, -0.119705, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_yuvg7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0anor"]
@@ -54,6 +54,7 @@ scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_fa5ip")
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
+collision_layer = 0
 script = ExtResource("3_85xpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
@@ -62,6 +63,8 @@ scale = Vector2(27.25, 27.25)
 shape = SubResource("CapsuleShape2D_yd3lw")
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("4_4ve8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
