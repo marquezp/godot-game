@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjr0qawpglql2"]
+[gd_scene load_steps=6 format=3 uid="uid://cjr0qawpglql2"]
 
 [ext_resource type="Texture2D" uid="uid://diid24un70spr" path="res://Assets/Nieve.png" id="1_3gjun"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_acwdo"]
+[ext_resource type="Script" path="res://Scripts/health.gd" id="2_88xnp"]
 [ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="3_cu6sh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0l8ue"]
@@ -11,6 +12,9 @@ height = 514.0
 [node name="Player" type="Node2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_acwdo")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_88xnp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3gjun")

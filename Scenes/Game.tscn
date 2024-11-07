@@ -27,4 +27,9 @@ scale = Vector2(41.8642, 43.9367)
 [node name="Enemy" parent="." instance=ExtResource("4_ttk2x")]
 position = Vector2(370, 350)
 
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score:"
+
 [connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager/SpawnTimer" method="_on_timeout"]

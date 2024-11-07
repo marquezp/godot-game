@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjfp5h83g3kgf"]
+[gd_scene load_steps=10 format=3 uid="uid://cjfp5h83g3kgf"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_5p0gd"]
 [ext_resource type="Texture2D" uid="uid://ckbdcifsn4gt6" path="res://Assets/Tormented_Demon_(1).png" id="1_fa5ip"]
+[ext_resource type="Script" path="res://Scripts/health.gd" id="2_rsx70"]
 [ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="3_85xpb"]
 [ext_resource type="Script" path="res://Scripts/hitbox.gd" id="4_4ve8f"]
 
@@ -48,6 +49,9 @@ _data = {
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_5p0gd")
 
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_rsx70")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, -20)
 scale = Vector2(0.16, 0.16)
@@ -76,3 +80,5 @@ shape = SubResource("CapsuleShape2D_yd3lw")
 libraries = {
 "": SubResource("AnimationLibrary_0anor")
 }
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

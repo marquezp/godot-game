@@ -1,10 +1,9 @@
 extends Timer
 
 @onready var spawnTimer: Timer = $"."
+@export var nextSpawnTime := 3.0
 
 var preloadedEnemy := preload("res://Scenes/Enemy.tscn")
-
-var nextSpawnTime := 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
