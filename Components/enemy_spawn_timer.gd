@@ -17,6 +17,7 @@ func _on_timeout() -> void:
 	var xPos := randi() % int(viewportSize.x)
 	var yPos := randi() % int(viewportSize.y)
 	enemy.position = Vector2(xPos,yPos);
+	enemy.scale = Vector2(3,3)
 	
 	get_tree().current_scene.add_child(enemy)
 	# restart timer

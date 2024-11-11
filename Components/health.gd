@@ -10,7 +10,6 @@ signal health_depleted()
 func set_health(value: int):
 	var clamped_value = clampi(value, 0, max_health)
 	if clamped_value != health:
-		var difference = clamped_value - health
 		health = clamped_value
 		
 		if health == 0:
